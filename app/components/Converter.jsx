@@ -11,19 +11,22 @@ const Converter = () => {
     const [gridHeight, setGridHeight] = useState(0)
 
     const displayAnswers = () => {
-        let tempGrid = [];
-        let tempRow = [];
-        let totalIndex = 0;
+        // Create temp variables for display grid
+        let tempGrid = []
+        let tempRow = []
+        let totalIndex = 0
+        // Reconstruct the game grid
         for (let i = 0; i < gridHeight; i++) {
             for (let j = 0; j < gridWidth; j++) {
-                const item = answerArray[totalIndex];
-                tempRow.push(item);
-                totalIndex++;
+                const item = answerArray[totalIndex]
+                tempRow.push(item)
+                totalIndex++
             }
-            tempGrid.push(tempRow);
-            tempRow = [];
+            tempGrid.push(tempRow)
+            tempRow = []
         }
-        setAnswerGrid(tempGrid);
+        // Store final grid reconstructed into React useState
+        setAnswerGrid(tempGrid)
     }
 
     const prepareExploit = async (gridText) => {
