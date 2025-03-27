@@ -1,17 +1,17 @@
 ## Disclaimer
 
-This is a [Next.js](https://nextjs.org) PoC exploit to extract the answers for a CrosswordLabs.com puzzle!
+This is a [Next.js](https://nextjs.org) PoC exploit to extract the answers for a [CrosswordLabs.com](https://crosswordlabs.com) puzzle!
 
 - The discovery of this vulnerability was accidental and purely out of curiosity
 - This write-up is intended to showcase real-world scenarios in discovering ways that DevSecOps can be applied to reduce these types of attacks, even if they are not malicious at all
 - This is NOT intented to be used as a way to "cheat" or beat the system.  Truth is, whatever your instructor is teaching you - you need to learn it - and platforms like crosswordlabs.com make learning fun and interactive.  As an engineer I LOVE puzzles, and when an instructor puts together a game instead of just reading out of a textbook, I get excited and I'm hoping you do too!  So make sure you actually do the crossword puzzle, because it's probably back to more textbook stuff right after, lol.
-- I am words such as "vulnerability" and "exploit" because they describe the nature of the findings, but it's as simple as this... The answers to the puzzles are inside of the page source inside of a matrix array.  All I'm doing is copying and pasting the grid that is in plain text.  Anyone can copy/paste the answers and reconstruct the arrays to display the completed puzzle.  I am new to cybersecurity and this is my first write-up.  I don't believe this is a real "vulnerability", nor do I believe that I wrote a full "exploit", but I need to start somewhere and it simply just sounds "cooler".  Enjoy!
+- I am using words such as "vulnerability" and "exploit" because they describe the nature of the findings, but it's as simple as this... The answers to the puzzles are inside of the page source inside of a matrix array.  All I'm doing is copying and pasting the grid that is in plain text.  Anyone can copy/paste the answers and reconstruct the arrays to display the completed puzzle.  I am new to cybersecurity and this is my first write-up.  I don't believe this is a real "vulnerability", nor do I believe that I crafted a full "exploit", but I need to start somewhere and it simply just sounds "cooler".  Enjoy!
 
 ## Synopsis
 
-While studying cybersecurity in school, our instructor used CrosswordLabs.com sometimes to give us exercises and games to learn with.
+While studying cybersecurity in school, our instructor used [CrosswordLabs.com](https://crosswordlabs.com) sometimes to give us exercises and games to learn with.
 
-When you finish a crossword puzzle, it shows an animated star to celebrate your completeion!  I finished the puzzle early one day, and I noticed that you can repeatedly press or hold down the 'Enter' button to spam the animated star and it looks really cool!  I thought that would make a cool page transition, so I opened my browser's dev tools to see some details and started digging into the code on the page...
+When you finish a crossword puzzle, it shows an animated star to celebrate your completeion!  I finished the puzzle early one day, and I noticed that you can repeatedly press or hold down the 'Enter' button to spam the animated star and it looks really interesting!  I thought someting like that could make a fun page transition, so I opened my browser's dev tools to see some details and started digging into the code on the page...
 
 That was when I noticed the matrix array of characters and nulls inside the script writen on the main HTML page source.
 
@@ -51,7 +51,7 @@ Since we already have the array, you can copy/paste it into any IDE/text editor 
 
 For this exercise, I'm going to use Javascript to keep things simple and easy to display on a front-end static website, however you can probably program and display the results in your command line for faster results without the need to design anything.  
 
-The basic POC exploit for this is as follows...
+The basic PoC exploit for this is as follows...
 
 ```javascript 
     let grid = [[...], [...], [...], ...]
@@ -82,7 +82,7 @@ The basic POC exploit for this is as follows...
 
 ## Prepare and Display the Exploit
 
-Wanting to save as much time as possible, I created a Next.js app (jsx and tailwind) and chose to create an extremely simple front-end for this POC using React.
+Wanting to save as much time as possible, I created a Next.js app (jsx and tailwind) and chose to create an extremely simple front-end for this PoC using React.
 
 If you are unfamiliar with React, the useState() hook in React is basically just storing the data received from the exploit into a variable so we can use the data on the front-end.
 
@@ -146,7 +146,7 @@ Instructions to use site:
     - ( var grid = [[void, void, void, , etc... )
     - Javascript usually starts around line 300
 3. Tripple click to select the entire line, copy, and paste in the text area
-    - Submit the entire line, including the var grid = , and the trailing semi-colon, but if your copy/paste has added any spaces or an extra line at the end it will return an error, so press backspace all the way to the semi-colon
+    - Submit the entire line, including the var grid = and the trailing semi-colon, but if your copy/paste has added any spaces or an extra line at the end it will return an error, so press backspace all the way to the semi-colon
 4. Press Submit
 
 ## Thank you!
