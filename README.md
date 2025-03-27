@@ -138,7 +138,7 @@ If you are unfamiliar with React, the useState() hook in React is basically just
 
 ## Use the PoC to see in action!
 
-Site is deployed on Vercel @ [Crossword Labs Hack PoC](http://localhost:3000) .
+Site is deployed on Vercel @ [Crossword Labs Hack PoC](https://crossword-labs-hack-poc.vercel.app) .
 
 Instructions to use site: 
 1. Right click anywhere on the web page and click "View Page Source"
